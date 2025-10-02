@@ -1,4 +1,4 @@
-# main.yaml my workflow:
+#main.yaml workflow:
 
 name: build_deploy_aks
 on:
@@ -49,4 +49,3 @@ jobs:
           pull-images: false
       - name: Get pods
         run: kubectl get pod | grep vote
-
