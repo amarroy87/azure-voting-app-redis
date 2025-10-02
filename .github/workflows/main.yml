@@ -50,7 +50,3 @@ jobs:
       - name: Get pods
         run: kubectl get pod | grep vote
 
-#Commands:
-az aks get-credentials --resource-group github-actions-rg --name aks-gh-actions --overwrite-existing
-
-k get pod,svc -A
