@@ -1,0 +1,13 @@
+- name: Log in to Azure
+  uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+- name: Log in to ACR
+  run: |
+    az acr login --name ${{ secrets.registry }}
+
+- name: Build and push image
+  run: |
+    docker build -t ${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }} ./azure-vote
+    docker push ${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}
